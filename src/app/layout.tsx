@@ -14,6 +14,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <AppHeader />
         <main className="page-shell">{children}</main>
+        <footer className="app-footer">
+          <span>© 2026 ShijimiWORKS</span>
+        </footer>
       </body>
     </html>
   );

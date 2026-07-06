@@ -4,7 +4,7 @@ export default function ContactPage() {
   return (
     <LegalPage
       title="問い合わせ"
-      description="NETAKURAに関する問い合わせ先の案内です。"
+      description="問い合わせ先の案内です。"
       sections={[
         {
           heading: "問い合わせ方法",

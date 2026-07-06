@@ -46,8 +46,8 @@ a {
   gap: 20px;
   justify-content: space-between;
   left: 0;
-  min-height: 86px;
-  padding: 14px max(20px, calc((100vw - 1120px) / 2));
+  min-height: 88px;
+  padding: 12px max(20px, calc((100vw - 1120px) / 2));
   position: sticky;
   top: 0;
   z-index: 10;
@@ -56,7 +56,6 @@ a {
 .brand {
   align-items: center;
   display: inline-flex;
-  gap: 14px;
   min-width: 0;
 }
 
@@ -74,13 +73,6 @@ a {
   max-width: 220px;
   object-fit: contain;
   width: auto;
-}
-
-.brand strong {
-  color: var(--text);
-  display: block;
-  font-size: 20px;
-  letter-spacing: 0;
 }
 
 .header-nav {
@@ -118,6 +110,14 @@ a {
   padding: 34px 20px 64px;
 }
 
+.app-footer {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 0 20px 28px;
+}
+
 .hero,
 .grid,
 .stack,
@@ -133,22 +133,23 @@ a {
 .hero {
   align-items: start;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(238, 247, 245, 0.55));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(232, 245, 242, 0.68) 56%, rgba(243, 247, 251, 0.8));
   border: 1px solid rgba(216, 224, 234, 0.8);
   border-radius: 8px;
-  padding: 28px;
+  padding: 34px;
 }
 
 .hero-copy h1 {
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.08;
-  margin: 0 0 14px;
+  color: var(--primary-strong);
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.18;
+  margin: 0 0 16px;
 }
 
 .hero-logo {
   display: block;
   height: clamp(84px, 12vw, 116px);
-  margin: 0 0 18px;
+  margin: 0 0 28px;
   max-width: min(420px, 100%);
   object-fit: contain;
   width: auto;
@@ -393,7 +394,7 @@ textarea {
   }
 
   .brand {
-    gap: 10px;
+    max-width: 52vw;
   }
 
   .brand-mark img {
@@ -404,10 +405,6 @@ textarea {
   .brand-mark {
     height: 42px;
     width: min(160px, 52vw);
-  }
-
-  .brand strong {
-    font-size: 16px;
   }
 
   .header-nav {
@@ -431,7 +428,7 @@ textarea {
   }
 
   .hero {
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .hero-logo {
@@ -448,6 +445,6 @@ textarea {
   }
 
   .hero-copy h1 {
-    font-size: 38px;
+    font-size: 32px;
   }
 }

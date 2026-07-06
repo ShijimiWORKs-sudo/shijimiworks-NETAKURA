@@ -4,7 +4,7 @@ export default function OperatorPage() {
   return (
     <LegalPage
       title="運営者情報"
-      description="NETAKURAの運営者情報です。"
+      description="運営者情報です。"
       sections={[
         {
           heading: "運営者",

@@ -9,7 +9,7 @@ export default function SettingsPage() {
         <div>
           <h1>設定</h1>
           <p className="muted">
-            NETAKURAは現在、開発中のWebデモ版です。外部有料APIやAPIキーは使っていません。
+            現在は開発中のWebデモ版です。外部有料APIやAPIキーは使っていません。
           </p>
         </div>
         <Link className="btn btn-primary" href="/new">

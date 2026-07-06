@@ -4,7 +4,7 @@ export default function LegalPageRoute() {
   return (
     <LegalPage
       title="特商法表記"
-      description="NETAKURAの特定商取引法に基づく表記の準備ページです。"
+      description="特定商取引法に基づく表記の準備ページです。"
       sections={[
         {
           heading: "販売事業者",

@@ -4,7 +4,7 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="利用規約"
-      description="NETAKURAの利用条件をまとめたページです。"
+      description="利用条件をまとめたページです。"
       sections={[
         {
           heading: "サービスについて",

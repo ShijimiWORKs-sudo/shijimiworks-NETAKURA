@@ -31,9 +31,8 @@ export default function DashboardPage() {
     <div className="stack">
       <section className="hero">
         <div className="hero-copy">
-          <img className="hero-logo" src="/images/logo001_02.png" alt="NETAKURAロゴ" />
-          <h1>NETAKURA</h1>
-          <p className="hero-tagline">思いつきが、投稿の種に変わる。</p>
+          <img className="hero-logo" src="/images/logo001_02.png" alt="サービスロゴ" />
+          <h1>思いつきが、投稿の種に変わる。</h1>
           <p className="lead">
             メモ・愚痴・日記・映画の感想・仕事の気づきを、note構成・X投稿・Threads投稿に変換する発信支援ツールです。
           </p>

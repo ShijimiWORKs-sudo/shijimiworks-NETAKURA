@@ -1,37 +1,40 @@
 # NETAKURA MVP 最終報告
 
-## 2026-07-06 表記統一・ロゴ修正
+## 2026-07-07 ロゴのみブランド表示への調整
 
-- 商品名を `NETAKURA` に統一
-- ユーザー向け画面、metadata、README、docs、法務ページから旧名称と読み補足を削除
-- カタカナ表記をユーザー向け表示から削除
-- ヘッダーをロゴ + `NETAKURA` のみに変更
-- ヒーローエリアに大きめのロゴを追加
-- ロゴのaltを `NETAKURAロゴ` に変更
-- 背景色を淡いミントグレー基調へ調整
-- `/terms`、`/privacy`、`/disclaimer`、`/contact`、`/operator`、`/legal` を追加
+- 通常UIではロゴ画像のみでブランド表示する方針に変更
+- ヘッダー横の `NETAKURA` テキストを削除
+- ホーム画面ヒーローの `NETAKURA` テキスト見出しを削除
+- ロゴ画像の alt を `サービスロゴ` に変更
+- フッターを `© 2026 ShijimiWORKS` に変更
+- 通常UIで旧名称、読み補足、カタカナ表記が出ないことを確認
+- 法務本文、README、docs、metadata、内部識別子では必要な正式名称のみ維持
 
-## 2026-07-06 改善内容
+## 実装済み機能
 
-- 映画ジャンル専用の生成ロジックを追加
-- `OLDという絵映画` のような軽い誤字を `映画『OLD』` として扱う正規化を追加
-- 映画ジャンルで、感想、考察、印象に残った場面、テーマ、登場人物、映像表現、note記事化、SNS投稿化を強化
-- 不自然なキーワード差し込みを避けるため、映画ジャンルのnote構成は固定観点ベースへ変更
-- 設定画面のポイント消費案を日本語表示に変更
-- localStorageを主保存にしつつ、sessionStorageとCookieフォールバックを追加
+- メモ入力
+- ジャンル選択
+- 出力形式選択
+- 外部有料APIなしの疑似AI生成
+- 映画ジャンル向けの感想・考察・note記事化・SNS投稿化テンプレート
+- 生成結果の保存
+- 保存済み一覧
+- 詳細表示
+- コピー
+- Markdownコピー
+- 削除
+- 検索
+- ジャンルフィルター
+- 設定画面
+- 利用規約
+- プライバシーポリシー
+- 免責事項
+- 問い合わせ
+- 運営者情報
+- 特商法表記
+- スマホ幅対応
 
-## 1. 実装完了した内容
-
-- ローカルで起動できる Next.js アプリを作成
-- メモ入力、ジャンル選択、出力形式選択を実装
-- 外部有料APIなしの疑似AI生成を実装
-- 発信テーマ、読者の悩み、タイトル案、note構成、X投稿案、Threads投稿案、タグを生成
-- 生成結果の保存、保存済み一覧、詳細表示、コピー、削除を実装
-- 検索、ジャンルフィルター、Markdownコピーを追加
-- 設定画面にローカルMVP状態、将来プラン案、ポイント消費案を表示
-- README、朝の確認手順、設計ドキュメント、テスト報告を作成
-
-## 2. 起動方法
+## 起動方法
 
 ```bash
 cd C:\制作データ\10_App\netazouAI
@@ -39,15 +42,10 @@ npm install
 npm run dev
 ```
 
-通常は以下を開く。
+通常は `http://localhost:3000` を開く。
+今回の確認環境では `3000` が使用中だったため、`http://localhost:3001` で確認した。
 
-```text
-http://localhost:3000
-```
-
-`3000` が使用中の場合は、ターミナルに表示される `http://localhost:3001` などを開く。今回の確認環境では `3001` で起動した。
-
-## 3. 使用技術
+## 使用技術
 
 - Next.js 15.5.20
 - React 19
@@ -55,97 +53,74 @@ http://localhost:3000
 - lucide-react
 - localStorage
 
-## 4. 保存方式
+## 保存方式
 
-ブラウザのlocalStorageを優先する。環境差でWeb Storageが不安定な場合に備え、sessionStorageとローカルNext.jsサーバー内のJSONファイルにも同期する。
+入力内容と生成結果はブラウザのlocalStorageを優先して保存する。
+環境差でWeb Storageが使えない場合に備え、sessionStorageとCookieフォールバックを持つ。
 
 - `netakura.savedIdeas`
 - `netakura.usageStats`
 
-## 5. 実装した画面一覧
+## 実装した画面一覧
 
 - `/`: ダッシュボード
 - `/new`: 新規作成
 - `/saved`: 保存済み一覧
 - `/saved/[id]`: 詳細
 - `/settings`: 設定
+- `/terms`: 利用規約
+- `/privacy`: プライバシーポリシー
+- `/disclaimer`: 免責事項
+- `/contact`: 問い合わせ
+- `/operator`: 運営者情報
+- `/legal`: 特商法表記
 
-## 6. 疑似AI生成ロジックの場所
+## テスト結果
 
-- `src/lib/generator/extractKeywords.ts`
-- `src/lib/generator/generateAll.ts`
-- `src/lib/generator/normalizeMemo.ts`
-
-## 7. テスト結果
-
-- `npm install`: 成功
 - `npm run typecheck`: 成功
 - `npm run build`: 成功
 - `npm run dev`: 成功
 - 開発サーバーURL: `http://localhost:3001`
-- ブラウザで映画ジャンルの生成、Markdownコピー、設定画面の日本語表示を確認
-- 入力 `OLDという絵映画を感想として見たけど何を書けばいいかわからない` で期待文言を確認
-- 表記確認対象 `/`、`/new`、`/saved`、`/settings`、`/terms`、`/privacy`、`/disclaimer`、`/contact`、`/operator`、`/legal` で旧名称なし
+- ヘッダーはロゴ画像のみでブランド表示
+- ヒーローはロゴ画像と「思いつきが、投稿の種に変わる。」を主見出しとして表示
+- 通常UIにロゴ以外の `NETAKURA` テキストが表示されないことを確認
+- 旧名称、読み補足、カタカナ表記が通常UIに表示されないことを確認
+- フッター表記が `© 2026 ShijimiWORKS` であることを確認
 - PC幅でヘッダーロゴ高さ58px、ヒーローロゴ高さ116pxを確認
 - スマホ幅でヘッダーロゴ高さ42px、ヒーローロゴ高さ84px、横スクロールなしを確認
 
-## 8. 未実装機能
-
-- ログイン
-- 本物のAI API連携
-- 課金
-- Supabase
-- Stripe
-- Notion連携
-- Buffer連携
-- 本番公開
-
-## 9. 既知の問題
-
-- 生成品質はテンプレートベース
-- 保存はlocalStorageが主で、sessionStorageとCookieはブラウザ環境差に備えた補助
-- `npm audit` で Next.js 経由の PostCSS advisory が中程度として出る
-- 作業環境では `3000` が別アプリで使用中だったため `3001` で確認
-- ブラウザ自動操作が確認ダイアログ周辺でタイムアウトすることがあったため、削除は実装経路とブラウザ内保存の更新処理を確認
-- Vercel CLI は未インストールのため、この環境からVercelデプロイ状態は直接確認できない
-
-## 9-2. GitHub反映結果
+## GitHub反映結果
 
 - リポジトリ: `https://github.com/ShijimiWORKs-sudo/shijimiworks-NETAKURA.git`
 - ブランチ: `main`
-- 初回コミット: `2887ce47aca2d3d2b681ccaca6541d34071a8a6c`
-- push結果: `main -> main` 成功
+- push結果: 成功
 
-## 9-3. Vercel確認メモ
+## Vercel確認メモ
 
 Vercel CLI がこの環境にないため、Vercelダッシュボードで以下を確認する。
 
 - GitHub push 後に自動デプロイが開始されているか
 - Build が成功しているか
-- 公開URLで `NETAKURA` 表記に統一されているか
-- ヘッダーとヒーローエリアのロゴが大きく表示されるか
-- ロゴとテキストが重なっていないか
+- 最新コミットでデプロイされているか
+- 公開URLで通常UIにロゴ以外の `NETAKURA` テキストが表示されないか
+- 旧名称やカタカナ表記が表示されないか
+- ヘッダーとヒーローエリアのロゴが表示されるか
 - スマホ幅で崩れていないか
 
-## 10. 次にやるべきこと
+## 既知の問題
 
-- 朝の確認手順に沿って実際に触り、生成結果の方向性を判断する
-- 生成テンプレートを増やす
-- 保存済みネタの編集、お気に入り、エクスポートを追加する
-- 本物のAI API連携に進むか、先にUIを磨くか決める
+- 生成品質はテンプレートベース
+- 本物のAI API、ログイン、課金、Supabase、Stripeは未実装
+- `npm audit` で中程度の警告が出る場合がある
+- 作業環境では `3000` が別プロセスで使用中だったため `3001` で確認
+- ブラウザ自動操作では確認ダイアログ周辺が不安定になることがある
+- Vercel CLI は未インストールのため、この環境からVercelデプロイ状態は直接確認できない
 
-## 11. 朝のユーザー確認手順
-
-`docs/customer_test_plan.md` を見て、起動、生成、保存、詳細、コピー、削除、スマホ幅確認を行う。
-
-## 12. 変更・作成した主なファイル一覧
+## 変更・作成した主なファイル一覧
 
 - `README.md`
-- `package.json`
+- `src/app/layout.tsx`
 - `src/app/page.tsx`
-- `src/app/new/page.tsx`
-- `src/app/saved/page.tsx`
-- `src/app/saved/[id]/page.tsx`
 - `src/app/settings/page.tsx`
 - `src/app/terms/page.tsx`
 - `src/app/privacy/page.tsx`
@@ -154,10 +129,7 @@ Vercel CLI がこの環境にないため、Vercelダッシュボードで以下
 - `src/app/operator/page.tsx`
 - `src/app/legal/page.tsx`
 - `src/app/globals.css`
-- `src/components/*`
-- `src/lib/types.ts`
-- `src/lib/constants.ts`
-- `src/lib/storage/index.ts`
-- `src/lib/generator/*`
-- `docs/*`
-
+- `src/components/AppHeader.tsx`
+- `docs/test_report.md`
+- `docs/final_report.md`
+- `docs/deploy_plan.md`

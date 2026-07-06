@@ -6,11 +6,10 @@ import { Archive, Home, Plus, Settings } from "lucide-react";
 export function AppHeader() {
   return (
     <header className="app-header">
-      <Link className="brand" href="/" aria-label="NETAKURA ホーム">
+      <Link className="brand" href="/" aria-label="ホーム">
         <span className="brand-mark">
-          <img src="/images/logo001_02.png" alt="NETAKURAロゴ" />
+          <img src="/images/logo001_02.png" alt="サービスロゴ" />
         </span>
-        <strong>NETAKURA</strong>
       </Link>
       <nav className="header-nav" aria-label="メインメニュー">
         <Link href="/" title="ホーム">

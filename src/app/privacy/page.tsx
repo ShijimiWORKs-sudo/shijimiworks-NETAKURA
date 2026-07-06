@@ -4,11 +4,11 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="プライバシーポリシー"
-      description="NETAKURAにおける情報の取り扱いについてまとめたページです。"
+      description="情報の取り扱いについてまとめたページです。"
       sections={[
         {
           heading: "保存される情報",
-          body: "入力内容と生成結果は、ブラウザのlocalStorageを優先して保存されます。開発中のWebデモ版では、同じローカル環境内の保存補助も使用します。",
+          body: "入力内容と生成結果は、お使いのブラウザのlocalStorageに保存されます。",
         },
         {
           heading: "外部AI API",

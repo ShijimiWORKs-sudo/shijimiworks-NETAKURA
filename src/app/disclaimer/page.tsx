@@ -4,7 +4,7 @@ export default function DisclaimerPage() {
   return (
     <LegalPage
       title="免責事項"
-      description="NETAKURAの生成結果と利用上の注意についてまとめたページです。"
+      description="生成結果と利用上の注意についてまとめたページです。"
       sections={[
         {
           heading: "生成結果について",
