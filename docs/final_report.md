@@ -82,9 +82,12 @@ http://localhost:3000
 - `npm run typecheck`: 成功
 - `npm run build`: 成功
 - `npm run dev`: 成功
+- 開発サーバーURL: `http://localhost:3001`
 - ブラウザで映画ジャンルの生成、Markdownコピー、設定画面の日本語表示を確認
-- ローカルAPI経由で保存、一覧取得、削除を確認
 - 入力 `OLDという絵映画を感想として見たけど何を書けばいいかわからない` で期待文言を確認
+- 表記確認対象 `/`、`/new`、`/saved`、`/settings`、`/terms`、`/privacy`、`/disclaimer`、`/contact`、`/operator`、`/legal` で旧名称なし
+- PC幅でヘッダーロゴ高さ58px、ヒーローロゴ高さ116pxを確認
+- スマホ幅でヘッダーロゴ高さ42px、ヒーローロゴ高さ84px、横スクロールなしを確認
 
 ## 8. 未実装機能
 
@@ -103,7 +106,26 @@ http://localhost:3000
 - 保存はlocalStorageが主で、sessionStorageとCookieはブラウザ環境差に備えた補助
 - `npm audit` で Next.js 経由の PostCSS advisory が中程度として出る
 - 作業環境では `3000` が別アプリで使用中だったため `3001` で確認
-- ブラウザ自動操作が確認ダイアログ周辺でタイムアウトすることがあったため、削除の最終確認は同じローカルAPI経路でも検証
+- ブラウザ自動操作が確認ダイアログ周辺でタイムアウトすることがあったため、削除は実装経路とブラウザ内保存の更新処理を確認
+- Vercel CLI は未インストールのため、この環境からVercelデプロイ状態は直接確認できない
+
+## 9-2. GitHub反映結果
+
+- リポジトリ: `https://github.com/ShijimiWORKs-sudo/shijimiworks-NETAKURA.git`
+- ブランチ: `main`
+- 初回コミット: `2887ce47aca2d3d2b681ccaca6541d34071a8a6c`
+- push結果: `main -> main` 成功
+
+## 9-3. Vercel確認メモ
+
+Vercel CLI がこの環境にないため、Vercelダッシュボードで以下を確認する。
+
+- GitHub push 後に自動デプロイが開始されているか
+- Build が成功しているか
+- 公開URLで `NETAKURA` 表記に統一されているか
+- ヘッダーとヒーローエリアのロゴが大きく表示されるか
+- ロゴとテキストが重なっていないか
+- スマホ幅で崩れていないか
 
 ## 10. 次にやるべきこと
 
@@ -125,6 +147,12 @@ http://localhost:3000
 - `src/app/saved/page.tsx`
 - `src/app/saved/[id]/page.tsx`
 - `src/app/settings/page.tsx`
+- `src/app/terms/page.tsx`
+- `src/app/privacy/page.tsx`
+- `src/app/disclaimer/page.tsx`
+- `src/app/contact/page.tsx`
+- `src/app/operator/page.tsx`
+- `src/app/legal/page.tsx`
 - `src/app/globals.css`
 - `src/components/*`
 - `src/lib/types.ts`

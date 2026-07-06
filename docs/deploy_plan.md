@@ -32,6 +32,8 @@ git push -u origin main
 
 GitHub push 後、Vercel 側で自動デプロイが開始される想定。
 
+このローカル環境では Vercel CLI が未インストールのため、デプロイ確認はVercelダッシュボードで行う。
+
 確認項目:
 
 - Build が成功する

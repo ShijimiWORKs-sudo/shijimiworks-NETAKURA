@@ -17,6 +17,8 @@
 - `npm run typecheck`: 成功
 - `npm run build`: 成功
 - `npm run dev`: 成功。`http://localhost:3001` で起動
+- GitHub push: 成功
+- Vercel CLI: 未インストールのため、この環境では直接確認不可
 
 ### 表記確認
 
@@ -35,6 +37,8 @@
 - ヒーローエリアのロゴ高さは 84px〜116px
 - `object-fit: contain` を使用
 - ロゴとテキストの重なりなし
+- PC幅: ヘッダー58px、ヒーロー116px
+- スマホ幅: ヘッダー42px、ヒーロー84px、横スクロールなし
 
 ### 背景色確認
 
