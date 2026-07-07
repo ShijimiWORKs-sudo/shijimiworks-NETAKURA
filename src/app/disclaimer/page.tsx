@@ -8,7 +8,7 @@ export default function DisclaimerPage() {
       sections={[
         {
           heading: "生成結果について",
-          body: "NETAKURAの出力は発信作成を補助するための案であり、正確性、完全性、特定目的への適合性を保証するものではありません。",
+          body: "本サービスの出力は発信作成を補助するための案であり、正確性、完全性、特定目的への適合性を保証するものではありません。",
         },
         {
           heading: "公開前の確認",

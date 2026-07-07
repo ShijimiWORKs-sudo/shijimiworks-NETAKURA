@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         },
         {
           heading: "外部AI API",
-          body: "現在のNETAKURAは外部有料AI APIを使用していません。APIキーの入力も不要です。",
+          body: "現在のWebデモ版では外部有料AI APIを使用していません。APIキーの入力も不要です。",
         },
         {
           heading: "データ削除",

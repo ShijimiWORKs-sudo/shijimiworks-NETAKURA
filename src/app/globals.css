@@ -69,10 +69,10 @@ a {
 
 .brand-mark img {
   display: block;
-  height: 58px;
+  height: 100%;
   max-width: 220px;
   object-fit: contain;
-  width: auto;
+  width: 100%;
 }
 
 .header-nav {
@@ -111,11 +111,33 @@ a {
 }
 
 .app-footer {
+  align-items: center;
   color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
   font-size: 13px;
+  gap: 10px 16px;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 1120px;
   padding: 0 20px 28px;
+}
+
+.footer-links,
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links a:hover {
+  color: var(--primary-strong);
 }
 
 .hero,
@@ -398,7 +420,6 @@ textarea {
   }
 
   .brand-mark img {
-    height: 42px;
     max-width: 160px;
   }
 

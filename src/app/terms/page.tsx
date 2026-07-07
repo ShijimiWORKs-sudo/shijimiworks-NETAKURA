@@ -8,7 +8,7 @@ export default function TermsPage() {
       sections={[
         {
           heading: "サービスについて",
-          body: "NETAKURAは、メモや感想を発信向けの構成や投稿案に変換する開発中のWebデモ版です。",
+          body: "本サービスは、メモや感想を発信向けの構成や投稿案に変換する開発中のWebデモ版です。",
         },
         {
           heading: "禁止事項",

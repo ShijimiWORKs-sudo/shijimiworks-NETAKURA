@@ -8,7 +8,7 @@ export default function OperatorPage() {
       sections={[
         {
           heading: "運営者",
-          body: "NETAKURA運営",
+          body: "運営者",
         },
         {
           heading: "サービス内容",

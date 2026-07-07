@@ -2,6 +2,15 @@ import Link from "next/link";
 import { Card } from "@/components/Card";
 import { PLAN_DEFINITIONS, POINT_COST_LABELS, POINT_COSTS } from "@/lib/constants";
 
+const relatedLinks = [
+  { href: "/terms", label: "利用規約" },
+  { href: "/privacy", label: "プライバシーポリシー" },
+  { href: "/disclaimer", label: "免責事項" },
+  { href: "/contact", label: "お問い合わせ" },
+  { href: "/operator", label: "運営者情報" },
+  { href: "/legal", label: "特商法表記" },
+];
+
 export default function SettingsPage() {
   return (
     <div className="stack">
@@ -74,6 +83,17 @@ export default function SettingsPage() {
           生成ロジックは UI から分離し、src/lib/generator に集約しています。将来はこの層を OpenAI API
           などの本物のAI生成に差し替える想定です。
         </p>
+      </Card>
+
+      <Card>
+        <h2>サポート・規約</h2>
+        <div className="related-links" style={{ marginTop: 16 }}>
+          {relatedLinks.map((link) => (
+            <Link key={link.href} className="btn btn-secondary" href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </Card>
     </div>
   );

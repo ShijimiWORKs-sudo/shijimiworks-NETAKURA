@@ -3,12 +3,12 @@ import { LegalPage } from "@/components/LegalPage";
 export default function LegalPageRoute() {
   return (
     <LegalPage
-      title="特商法表記"
+      title="特定商取引法に基づく表記"
       description="特定商取引法に基づく表記の準備ページです。"
       sections={[
         {
           heading: "販売事業者",
-          body: "NETAKURA運営",
+          body: "運営者",
         },
         {
           heading: "価格と提供条件",
